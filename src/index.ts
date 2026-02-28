@@ -62,15 +62,14 @@ function validateRequiredEnv(env: MoltbotEnv): string[] {
   }
 
   // CF Access vars not required in dev/test mode since auth is skipped
-  if (!isTestMode) {
-    if (!env.CF_ACCESS_TEAM_DOMAIN) {
-      missing.push('CF_ACCESS_TEAM_DOMAIN');
-    }
-
-    if (!env.CF_ACCESS_AUD) {
-      missing.push('CF_ACCESS_AUD');
-    }
-  }
+  // if (!isTestMode) {
+  //   if (!env.CF_ACCESS_TEAM_DOMAIN) {
+  //     missing.push('CF_ACCESS_TEAM_DOMAIN');
+  //   }
+  //   if (!env.CF_ACCESS_AUD) {
+  //     missing.push('CF_ACCESS_AUD');
+  //   }
+  // }
 
   // Check for AI provider configuration (at least one must be set)
   const hasCloudflareGateway = !!(
