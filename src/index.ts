@@ -196,14 +196,8 @@ app.use('*', async (c, next) => {
 
 // Middleware: Cloudflare Access authentication for protected routes
 app.use('*', async (c, next) => {
-  // Determine response type based on Accept header
-  const acceptsHtml = c.req.header('Accept')?.includes('text/html');
-  const middleware = createAccessMiddleware({
-    type: acceptsHtml ? 'html' : 'json',
-    redirectOnMissing: acceptsHtml,
-  });
-
-  return middleware(c, next);
+  // CF Access disabled - using token auth only
+  return next();
 });
 
 // Mount API routes (protected by Cloudflare Access)
